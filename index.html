@@ -3,19 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love</title>
+    <title>Document</title>
 </head>
 <body>
     <table>
         <tr>
             <th>姓名</th>
             <th>性别</th>
+            <th>在一起已经</th>
             <th>要在一起</th>
         </tr>
         <tr>
             <td>笪芷馨</td>
             <td>女</td>
-            <td  rowspan="2">30000天</td>
+            <td  rowspan="2" id="days-result">
+                <script>
+    function days(startY, startM, startD, endY, endM, endD) {
+    let start = new Date(startY, startM - 1, startD);  
+    let end = new Date(endY, endM - 1, endD);
+    return Math.round((end - start) / (24 * 60 * 60 * 1000));
+    }
+    let today = new Date();//获取日期
+    let year  = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let date  = today.getDate();
+    let n = days(2026, 4, 19, year, month, date);
+    document.getElementById('days-result').textContent = n + ' 天';//输出在页面
+    </script>
+            </td>
+            <td  rowspan="2">30000+天</td>
         </tr>
         <tr>            
             <td>闫志晨</td>            
@@ -28,5 +44,6 @@
         <input id="username" name="username" type="text" placeholder="比如你老公">
         <button type="submit">提交</button>
     </form>
+
 </body>
 </html>
